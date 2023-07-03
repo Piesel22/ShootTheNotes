@@ -1,6 +1,6 @@
 import pygame
 from random import randint as rand
-import time
+from time import sleep as zzz
 from buttonClass import Button
 import phonkynotes
 pygame.init()
@@ -20,15 +20,13 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     if songname == "PhonkyNotes":
-        if firstFrame == True:
-            phonkynotes.playSong()
-            firstFrame = False
-            songname = ""
+        songname = ""
+        phonkynotes.playSong()
     if songname == "":
         screen.fill((0, 100, 255))
         button.draw(screen)
         if button.clicked == True:
+            print("Phonky Notes Start")
             songname = "PhonkyNotes"
-            firstFrame = True
     pygame.display.update()
 pygame.quit()
